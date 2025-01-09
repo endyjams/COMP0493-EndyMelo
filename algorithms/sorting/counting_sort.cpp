@@ -3,35 +3,20 @@
 #include <algorithm>
 using namespace std;
 
-int main() {
-    int n; cin >> n;
-    
-    vector <int> initialVector(n);
-    
-    for (int i = 0; i < n; i++) cin >> initialVector[i];
-    
+vector<int> countingSort(vector<int>& initialVector) {
+    int n = initialVector.size();
+
     int k = *max_element(initialVector.begin(), initialVector.end());
     
-    vector <int> cnt(k + 1, 0);
+    vector<int> cnt(k + 1, 0);
     
     for (int i = 0; i < n; i++) cnt[initialVector[i]]++;
     
     for (int i = 1; i <= k; i++) cnt[i] += cnt[i - 1];
     
-    vector <int> sortedVector(n, 0);
+    vector <int> sortedVector(n);
     
-    for (int i = 0; i < n; i++) sortedVector[--cnt[initialVector[i]]] = initialVector[i];
+    for (int i = n - 1; i >= 0; i--) sortedVector[--cnt[initialVector[i]]] = initialVector[i];
     
-    return 0;
+    return sortedVector;
 }
-
-
-/*
-fornecer a entrada no formato:
-n, onde n é o tamanho do array
-seguido pelo array desejado
-
-exemplo de entrada:
-5
-9 1 4 2 6
-*/
