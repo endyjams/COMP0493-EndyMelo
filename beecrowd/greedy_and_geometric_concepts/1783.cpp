@@ -14,17 +14,11 @@ int main() {
         double mx2 = (x2 + x4) / 2.0;
         double my2 = (y2 + y4) / 2.0;
 
-        double m1 = (x3 == x1) ? INFINITY : (y3 - y1) / (x3 - x1);
-        double m2 = (x4 == x2) ? INFINITY : (y4 - y2) / (x4 - x2);
+        double m1 = (y3 - y1) / (x3 - x1);
+        double m2 = (y4 - y2) / (x4 - x2);
 
-        double p1, p2;
-        if (m1 == INFINITY) p1 = 0;
-        else if (m1 == 0) p1 = INFINITY;
-        else p1 = -1.0 / m1;
-
-        if (m2 == INFINITY) p2 = 0;
-        else if (m2 == 0) p2 = INFINITY;
-        else p2 = -1.0 / m2;
+        double p1 = -1.0 / m1;
+        double p2 = -1.0 / m2;
 
         double bx, by;
 
