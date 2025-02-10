@@ -17,7 +17,6 @@ int main(){
             produtos[i] = {id, preco};
         }
         
-
         const double INF = 1e18;
 
         vector<double> dp(m + 1, INF);
@@ -30,7 +29,7 @@ int main(){
             
             for (int j = m - 1; j >= 0; j--) {
                 if(dp[j] != INF && lista[j] == id){
-                    dp[j+1] = min(dp[j+1], dp[j] + preco);
+                    dp[j + 1] = min(dp[j + 1], dp[j] + preco);
                 }
             }
         }
